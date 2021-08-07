@@ -1,26 +1,32 @@
-import { HttpClient } from "@angular/common/http";
-import { TestBed } from "@angular/core/testing";
-import { FormBuilder } from "@angular/forms";
-import { Router } from "@angular/router";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { RouterTestingModule } from "@angular/router/testing";
 import { RegisterComponent } from "./register.component";
 
-beforeEach(() => {
-  TestBed.configureTestingModule({
-    providers: [
-      FormBuilder, HttpClient, Router
-    ]
-  });
-})
-
 describe('RegisterComponent', () => {
-  let formbuilder: FormBuilder;
-  let httpClient: HttpClient;
-  let router: Router;
-  it('#clicked() should toggle #isOn', () => {
-    const comp = new RegisterComponent(formbuilder, httpClient, router);
-    expect(comp).toBeTruthy();
-    //expect(comp.isOn).toBe(false, 'off at first');
-    //comp.clicked();
+  let registerComponent: RegisterComponent;
+  let registerFixture: ComponentFixture<RegisterComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [FormsModule, ReactiveFormsModule, HttpClientTestingModule, RouterTestingModule],
+      providers: [],
+      declarations: [RegisterComponent]
+    }).compileComponents();
+
+    registerFixture = TestBed.createComponent(RegisterComponent);
+    registerComponent = registerFixture.componentInstance;
+  });
+
+  it('Component instantiated successfully', () => {
+    expect(registerComponent).toBeTruthy();
+  });
+
+  it('Should in ngOnInit set form successfully', () => {
+  });
+
+  it('Should in submit request response successfully', () => {
   });
 
 });

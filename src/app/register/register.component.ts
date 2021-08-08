@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router
-  ) { 
+  ) {
 
   }
 

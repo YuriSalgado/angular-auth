@@ -1,12 +1,14 @@
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { Router } from "@angular/router";
 import { RouterTestingModule } from "@angular/router/testing";
 import { RegisterComponent } from "./register.component";
 
 describe('RegisterComponent', () => {
   let registerComponent: RegisterComponent;
   let registerFixture: ComponentFixture<RegisterComponent>;
+  let router: Router;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -17,16 +19,41 @@ describe('RegisterComponent', () => {
 
     registerFixture = TestBed.createComponent(RegisterComponent);
     registerComponent = registerFixture.componentInstance;
+    router = TestBed.get(Router);
+
   });
 
   it('Component instantiated successfully', () => {
     expect(registerComponent).toBeTruthy();
   });
 
-  it('Should in ngOnInit set form successfully', () => {
+  it('Should in ngOnInit set form successfully normal fields', () => {
+    registerComponent.ngOnInit();
+    expect(registerComponent.form.value).toEqual({
+      first_name: '',
+      last_name: '',
+      email: '',
+      password: '',
+      password_confirm: ''
+    });
+  });
+
+  it('Should in ngOnInit set form successfully full fields', () => {
+    registerComponent.ngOnInit();
+    expect(registerComponent.form.getRawValue()).toEqual({
+        first_name: '',
+        last_name: '',
+        email: '',
+        password: '',
+        password_confirm: ''
+    });
   });
 
   it('Should in submit request response successfully', () => {
+    /*const navigateSpy = spyOn(router, 'navigate');
+    registerComponent.ngOnInit();
+    registerComponent.submit();
+    expect(navigateSpy).toHaveBeenCalledWith(['login']);*/
   });
 
 });

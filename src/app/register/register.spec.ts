@@ -1,4 +1,4 @@
-import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Router } from "@angular/router";
@@ -8,6 +8,7 @@ import { RegisterComponent } from "./register.component";
 describe('RegisterComponent', () => {
   let registerComponent: RegisterComponent;
   let registerFixture: ComponentFixture<RegisterComponent>;
+  let httpMock: HttpTestingController;
   let router: Router;
 
   beforeEach(() => {
@@ -19,8 +20,8 @@ describe('RegisterComponent', () => {
 
     registerFixture = TestBed.createComponent(RegisterComponent);
     registerComponent = registerFixture.componentInstance;
-    router = TestBed.get(Router);
-
+    httpMock = TestBed.get(HttpTestingController);
+    router = TestBed.inject(Router);
   });
 
   it('Component instantiated successfully', () => {
@@ -50,10 +51,16 @@ describe('RegisterComponent', () => {
   });
 
   it('Should in submit request response successfully', () => {
-    /*const navigateSpy = spyOn(router, 'navigate');
+    const routerSpy = spyOn(router, 'navigate');
+
     registerComponent.ngOnInit();
     registerComponent.submit();
-    expect(navigateSpy).toHaveBeenCalledWith(['login']);*/
+
+    const request = httpMock.expectOne('http://localhost:8000/api/register');
+    request.flush([]);
+
+    expect(request.request.method).toBe('POST');
+    expect(routerSpy).toHaveBeenCalledWith(['/login'])
   });
 
 });

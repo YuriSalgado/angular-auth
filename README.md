@@ -1,9 +1,11 @@
 # angular-auth
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
-- Angular and TypeScript
-- Bootstrap for CSS
-- 4 components for authentication journey
+- [-] Angular and TypeScript
+- [-] Bootstrap for CSS
+- [-] 4 components for authentication journey
+- [] Lazy loading
+- [] Jasmine
 
 ## Install
 
@@ -21,7 +23,7 @@ Navigate to `http://localhost:4200/`. The app will automatically reload if you c
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Run `ng test --include='**/folder/*.spec.ts'` to specific  unit test.
+Run `ng test --include='**/register/*.spec.ts'` to specific  unit test.
 
 ## Build
 

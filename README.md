@@ -3,7 +3,7 @@
 There are 4 components for authentication journey using external restfull API [node-auth](https://github.com/YuriSalgado/node-auth).
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 
-## Experiments
+## Implementations
 - [x] Angular, TypeScript, SPA
 - [x] JWT Authentication
 - [x] Bootstrap for CSS, grid, flex

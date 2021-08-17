@@ -61,7 +61,7 @@ describe('RegisterComponent', () => {
     request.flush([]);
 
     expect(request.request.method).toBe('POST');
-    expect(routerSpy).toHaveBeenCalledWith(['/login'])
+    expect(routerSpy).toHaveBeenCalledWith(['/login']);
   });
 
 });

@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
 
-  API_URL = 'http://localhost:8000/api';
+  API_URL = environment.apiUrl;
 
   constructor(
     private http: HttpClient
@@ -16,7 +17,7 @@ export class RegisterService {
 
   }
 
-  register(formBuilder: FormGroup): Observable<any> {
-    return this.http.post(this.API_URL + '/register', formBuilder.getRawValue());
+  register(rawValue: any): Observable<any> {
+    return this.http.post(`${this.API_URL}/register`, rawValue);
   }
 }

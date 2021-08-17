@@ -10,11 +10,11 @@ import { RegisterService } from './register.service';
 })
 export class RegisterComponent implements OnInit {
   form: FormGroup;
-  register: RegisterService;
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private register: RegisterService
   ) {
 
   }
@@ -30,9 +30,7 @@ export class RegisterComponent implements OnInit {
   }
 
   submit(): void {
-    console.log("this.register");
-    console.log(this.register);
-    this.register.register(this.form).subscribe(res => {
+    this.register.register(this.form.getRawValue()).subscribe(res => {
       this.router.navigate(['/login']);
     });
   }

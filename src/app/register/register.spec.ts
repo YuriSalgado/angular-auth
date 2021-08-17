@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Router } from "@angular/router";
 import { RouterTestingModule } from "@angular/router/testing";
 import { RegisterComponent } from "./register.component";
+import { RegisterService } from "./register.service";
 
 describe('RegisterComponent', () => {
   let registerComponent: RegisterComponent;
@@ -14,7 +15,7 @@ describe('RegisterComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule, ReactiveFormsModule, HttpClientTestingModule, RouterTestingModule],
-      providers: [],
+      providers: [RegisterService],
       declarations: [RegisterComponent]
     }).compileComponents();
 

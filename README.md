@@ -9,7 +9,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - [x] Bootstrap for CSS, grid, flex
 - [x] Lazy loading
 - [x] Jasmine tests
-- [ ] Service dependency injection (DI) 
+- [x] Service dependency injection (DI) 
 - [ ] RxJS, observable, subscribe
 - [ ] StencilJS
 - [ ] Guards

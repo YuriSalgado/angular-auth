@@ -30,7 +30,9 @@ export class RegisterComponent implements OnInit {
   }
 
   submit(): void {
-    this.register.register(this.form.getRawValue()).subscribe(res => {
+    let rawValue = this.form.getRawValue();
+
+    this.register.register(rawValue).subscribe(res => {
       this.router.navigate(['/login']);
     });
   }

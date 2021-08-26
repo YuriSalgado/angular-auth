@@ -11,8 +11,8 @@ export class LoginService {
   API_URL = environment.apiUrl;
 
   constructor(
-    private http: HttpClient)
-  {
+    private http: HttpClient
+  ) {
 
   }
 

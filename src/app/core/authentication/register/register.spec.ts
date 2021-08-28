@@ -53,11 +53,11 @@ describe('RegisterComponent', () => {
 
   it('Should in submit request response successfully', () => {
     const routerSpy = spyOn(router, 'navigate');
+    const request = httpMock.expectOne('http://localhost:8000/api/register');
 
     registerComponent.ngOnInit();
     registerComponent.submit();
 
-    const request = httpMock.expectOne('http://localhost:8000/api/register');
     request.flush([]);
 
     expect(request.request.method).toBe('POST');

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Emitters } from '../emitters/emitters';
+import { Emitters } from '../../core/emitters/emitters';
 import { HomeService } from './home.service';
 
 @Component({

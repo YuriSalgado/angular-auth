@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class RegisterService {
 
   API_URL = environment.apiUrl;
 
@@ -16,7 +16,7 @@ export class LoginService {
 
   }
 
-  login(rawValue: any): Observable<any> {
-    return this.http.post(`${this.API_URL}/login`, rawValue, {withCredentials: true});
+  register(rawValue: any): Observable<any> {
+    return this.http.post(`${this.API_URL}/register`, rawValue);
   }
 }

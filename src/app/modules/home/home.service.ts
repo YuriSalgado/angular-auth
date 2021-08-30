@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { User } from 'src/app/shared/models/user.model';
+import { Observable } from "rxjs";
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -16,7 +17,7 @@ export class HomeService {
 
   }
 
-  user(): Observable<any> {
-    return this.http.get(`${this.API_URL}/user`, {withCredentials: true});
+  user(): Observable<User> {
+    return this.http.get(`${this.API_URL}/user`, {withCredentials: true}) as Observable<User>;
   }
 }

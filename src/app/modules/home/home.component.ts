@@ -22,11 +22,13 @@ export class HomeComponent implements OnInit {
       (res: User) => {
         console.log(res);
         this.message = `Hi ${res.first_name}`;
-        Emitters.authEmitter.emit(true);
+        Emitters.authObservable.next(true);
+        //Emitters.authEmitter.emit(true);
       },
       error => {
         this.message = 'You are not logged in';
-        Emitters.authEmitter.emit(false);
+        Emitters.authObservable.next(false);
+        //Emitters.authEmitter.emit(false);
       }
     )
   }

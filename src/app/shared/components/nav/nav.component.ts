@@ -13,11 +13,18 @@ export class NavComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    Emitters.authEmitter.subscribe(
+    /*Emitters.authEmitter.subscribe(
       (auth: boolean) => {
+        console.log("authEmitter", auth);
         this.authenticated = auth;
       }
-    );
+    );*/
+    Emitters.authObservable.subscribe(
+      (auth: boolean) => {
+        console.log("authObservable", auth);
+        this.authenticated = auth;
+      }
+    )
   }
 
   logout(): void {

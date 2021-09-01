@@ -10,8 +10,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - [x] Lazy loading
 - [x] Jasmine tests
 - [x] Service dependency injection (DI) 
-- [ ] RxJS, observable, subscribe
-- [ ] StencilJS
+- [x] RxJS, observable, subscribe
+- [ ] StencilJS (could have)
 - [ ] Guards
 
 ## Install

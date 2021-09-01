@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/shared/models/user.model';
-import { Emitters } from '../../core/emitters/emitters';
 import { HomeService } from './home.service';
 
 @Component({
@@ -20,13 +19,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.home.user().subscribe(
       (res: User) => {
-        console.log(res);
         this.message = `Hi ${res.first_name}`;
-        Emitters.authObservable.next(true);
       },
       error => {
         this.message = 'You are not logged in';
-        Emitters.authObservable.next(false);
       }
     )
   }

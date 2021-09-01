@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Emitters } from '../../emitters/emitters';
 import { LoginService } from './login.service';
 
 @Component({
@@ -29,9 +30,16 @@ export class LoginComponent implements OnInit {
   submit(): void {
     let rawValue = this.form.getRawValue();
 
-    this.login.login(rawValue).subscribe(res => {
-      this.router.navigate(['/']);
-    });
+    this.login.login(rawValue).subscribe(
+      res => {
+        console.log("entrou?");
+        Emitters.authObservable.next(true);
+        this.router.navigate(['/']);
+      },
+      error => {
+        Emitters.authObservable.next(false);
+        this.router.navigate(['/login']);
+      });
   }
 
 }

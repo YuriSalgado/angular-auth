@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterService } from './core/authentication/register/register.service';
+import { AuthGuard } from './core/guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { RegisterService } from './core/authentication/register/register.service
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [RegisterService],
+  providers: [RegisterService, NavComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Emitters } from '../../../core/emitters/emitters';
+import { NavService } from './nav.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,9 +9,11 @@ import { Emitters } from '../../../core/emitters/emitters';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  authenticated = false;
+  private authenticated: boolean = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private nav: NavService
+  ) { }
 
   ngOnInit(): void {
     Emitters.authObservable.subscribe(
@@ -22,8 +25,13 @@ export class NavComponent implements OnInit {
   }
 
   logout(): void {
-    this.http.get('http://localhost:8000/api/logout', {withCredentials: true})
-    .subscribe(() => this.authenticated = false);
+    this.nav.logout().subscribe(() => {
+      this.authenticated = false;
+      Emitters.authObservable.next(false);
+    });
   }
 
+  isAuthenticated(): boolean {
+    return this.authenticated;
+  }
 }

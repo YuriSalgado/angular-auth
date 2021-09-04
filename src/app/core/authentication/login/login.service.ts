@@ -9,6 +9,7 @@ import { environment } from '../../../../environments/environment';
 export class LoginService {
 
   API_URL = environment.apiUrl;
+  TESTE = "joao";
 
   constructor(
     private http: HttpClient
@@ -17,6 +18,7 @@ export class LoginService {
   }
 
   login(rawValue: any): Observable<any> {
+    this.TESTE = "juca!";
     return this.http.post(`${this.API_URL}/login`, rawValue, {withCredentials: true});
   }
 }

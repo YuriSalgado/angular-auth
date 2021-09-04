@@ -9,29 +9,20 @@ import { NavService } from './nav.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  private authenticated: boolean = false;
 
   constructor(
-    private nav: NavService
+    public nav: NavService
   ) { }
 
   ngOnInit(): void {
-    Emitters.authObservable.subscribe(
-      (auth: boolean) => {
-        console.log("authObservable", auth);
-        this.authenticated = auth;
-      }
-    )
+
   }
 
   logout(): void {
     this.nav.logout().subscribe(() => {
-      this.authenticated = false;
+      this.nav.authenticated = false;
       Emitters.authObservable.next(false);
     });
   }
 
-  isAuthenticated(): boolean {
-    return this.authenticated;
-  }
 }

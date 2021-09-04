@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { NavComponent } from 'src/app/shared/components/nav/nav.component';
+import { NavService } from 'src/app/shared/components/nav/nav.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { NavComponent } from 'src/app/shared/components/nav/nav.component';
 export class AuthGuard implements CanActivate {
 
   constructor(
-    private navComponent: NavComponent,
+    private navService: NavService,
     private router: Router
   ) { }
 
@@ -18,9 +18,9 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ) : Observable<boolean> | boolean {
 
-    //if (this.navComponent.isAuthenticated()) {
+    if (this.navService.isAuthenticated()) {
       return true;
-    //}
+    }
 
     this.router.navigate(['/login']);
     return false;

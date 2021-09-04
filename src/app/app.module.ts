@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterService } from './core/authentication/register/register.service';
-import { AuthGuard } from './core/guard/auth.guard';
+import { AuthGuard } from './core/authentication/guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { AuthGuard } from './core/guard/auth.guard';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [RegisterService, NavComponent],
+  providers: [RegisterService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

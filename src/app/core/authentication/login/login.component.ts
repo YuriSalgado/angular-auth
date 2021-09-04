@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
 
     this.login.login(rawValue).subscribe(
       res => {
-        console.log("entrou?");
         Emitters.authObservable.next(true);
         this.router.navigate(['/']);
       },

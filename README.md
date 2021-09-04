@@ -12,7 +12,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - [x] Service dependency injection (DI) 
 - [x] RxJS, observable, subscribe
 - [ ] StencilJS (could have)
-- [ ] Guards
+- [X] Guards
 
 ## Install
 

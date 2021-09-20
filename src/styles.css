@@ -5,7 +5,7 @@ html, body, app-root, .auth-wrapper {
 
 /* By P1N2O, thanks! */
 body {
-	background: linear-gradient(-45deg, #93B5C6, #C9CCD5, #E4D8DC, #FFE3E3);
+	background: linear-gradient(-45deg, #56d8e4, #9f01ea);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 }
